@@ -6,23 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Settings/Scenes/Main Menu.unity
+    path: Assets/Scenes/MainMenu.unity
     guid: 7cb3f6927c762b24581d80b938231663
   - enabled: 1
-    path: Assets/Settings/Scenes/Game Selection.unity
-    guid: 5ade766b1a6592c478ba036cca55dd2b
-  - enabled: 1
-    path: Assets/Settings/Scenes/Sudoku.unity
+    path: Assets/Scenes/Sudoku.unity
     guid: 32ae53b40bcf7a845a9acd871db3781d
   - enabled: 1
-    path: Assets/Settings/Scenes/Layer Mixer.unity
+    path: Assets/Scenes/LayerMixer.unity
     guid: 86d0868ed5f7c2143b788fcbf28e0535
   - enabled: 1
-    path: Assets/Settings/Scenes/Shape Shifter.unity
+    path: Assets/Scenes/ShapeShifter.unity
     guid: 98f6b8ca3f098234d98664390ee28eab
   - enabled: 1
-    path: Assets/Settings/Scenes/Guide Shapes.unity
+    path: Assets/Scenes/GuideShapes.unity
     guid: 1dca2b4db55d573489262db87cf7fc67
+  - enabled: 1
+    path: Assets/Scenes/ColorSort.unity
+    guid: e528310e673699340b8e7f103c9a42ee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
