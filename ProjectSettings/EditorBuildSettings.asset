@@ -9,20 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7cb3f6927c762b24581d80b938231663
   - enabled: 1
-    path: Assets/Scenes/Sudoku.unity
-    guid: 32ae53b40bcf7a845a9acd871db3781d
+    path: Assets/Scenes/ColorShift.unity
+    guid: 58fed1a3b91ec324f9cb12c9c7b34231
   - enabled: 1
-    path: Assets/Scenes/LayerMixer.unity
-    guid: 86d0868ed5f7c2143b788fcbf28e0535
+    path: Assets/Scenes/ColorSwitch.unity
+    guid: fb6262c3aebe1e744a0c1eeb23f851a5
   - enabled: 1
-    path: Assets/Scenes/ShapeShifter.unity
-    guid: 98f6b8ca3f098234d98664390ee28eab
+    path: Assets/Scenes/2048.unity
+    guid: e492614a1f72f944ca923bd6b0fdcfed
   - enabled: 1
-    path: Assets/Scenes/GuideShapes.unity
-    guid: 1dca2b4db55d573489262db87cf7fc67
-  - enabled: 1
-    path: Assets/Scenes/ColorSort.unity
-    guid: e528310e673699340b8e7f103c9a42ee
+    path: Assets/Scenes/AA.unity
+    guid: c8eb702617a94cb4387115486fb49bea
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

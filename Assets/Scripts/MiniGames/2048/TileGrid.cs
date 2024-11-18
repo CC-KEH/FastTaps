@@ -18,6 +18,7 @@ public class TileGrid : MonoBehaviour
 
     public TileCell GetCell(int x, int y)
     {
+        Debug.Log("Getting cell at " + x + ", " + y);
         if (x >=0 && x < width && y >= 0 && y < height)
         {
             return rows[y].cells[x];
@@ -28,6 +29,7 @@ public class TileGrid : MonoBehaviour
 
     public TileCell GetAdjacentCell(TileCell cell, Vector2Int direction)
     {
+        Debug.Log("Getting adjacent cell");
         Vector2Int newCoordinates = cell.coordinates;
         newCoordinates.x += direction.x;
         newCoordinates.y -= direction.y;

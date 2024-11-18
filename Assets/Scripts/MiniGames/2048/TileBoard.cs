@@ -40,8 +40,9 @@ public class TileBoard : MonoBehaviour
         tiles.Add(tile);
     }
 
-    private void MoveTiles(Vector2Int direction, int startX, int startY, int incrementX, int incrementY)
+    private void Move(Vector2Int direction, int startX, int incrementX, int startY, int incrementY)
     {   
+        Debug.Log("MoveTiles called with direction: " + direction);
         bool changed = false;
         for (int x = startX; x >= 0 && x < grid.width; x += incrementX)
         {
@@ -61,10 +62,12 @@ public class TileBoard : MonoBehaviour
     }
     private bool CanMerge(Tile a, Tile b)
     {
+        Debug.Log("Checking Merge");
         return a.value == b.value && !b.isLocked;
     }
     private void Merge(Tile a, Tile b)
     {
+        Debug.Log("Merging Tiles");
         tiles.Remove(a);
         a.Merge(b.cell);
         int index = Mathf.Clamp(IndexOf(b.state) + 1, 0, tileStates.Length - 1);
@@ -75,6 +78,7 @@ public class TileBoard : MonoBehaviour
     
     private bool MoveTile(Tile tile, Vector2Int direction)
     {
+        Debug.Log("Moving Tile");
         TileCell newCell = null;
         TileCell adjacentCell = grid.GetAdjacentCell(tile.cell, direction);
         while (adjacentCell != null)
@@ -114,6 +118,7 @@ public class TileBoard : MonoBehaviour
 
     private IEnumerator WaitForChanges()
     {   
+        Debug.Log("Waiting for Changes");
         waitingForMove = true;
         yield return new WaitForSeconds(0.1f);
         waitingForMove = false;
@@ -133,6 +138,7 @@ public class TileBoard : MonoBehaviour
 
     private bool CheckForGameOver()
     {
+        Debug.Log("Checking for Game Over");
         if (tiles.Count!= grid.width * grid.height)
         {
             return false;
@@ -167,29 +173,27 @@ public class TileBoard : MonoBehaviour
 
     private void Update()
     {
-        if (!waitingForMove)
-        {
+        if (waitingForMove) return;
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Debug.Log("Up");
-                MoveTiles(Vector2Int.up, 0, 1, 1, 1);
+                Move(Vector2Int.up, 0, 1, 1, 1);
             }
             else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
             {
                 Debug.Log("Down");
-                MoveTiles(Vector2Int.down, 0, 1, grid.height - 2, -1);
+                Move(Vector2Int.down, 0, 1, grid.height - 2, -1);
             }
             else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 Debug.Log("Left");
-                MoveTiles(Vector2Int.left, 1, 1, 0, 1);
+                Move(Vector2Int.left, 1, 1, 0, 1);
             }
             else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
                 Debug.Log("Right");
-                MoveTiles(Vector2Int.right, grid.width - 2, -1, 0, 1);
+                Move(Vector2Int.right, grid.width - 2, -1, 0, 1);
             }
-        }
     }
 
 }

@@ -50,6 +50,7 @@ public class TileGameManager : MonoBehaviour
     }
     public void IncreaseScore(int value)
     {
+        Debug.Log("Increasing Score by " + value);
         UpdateScore(score + value);
     }
 

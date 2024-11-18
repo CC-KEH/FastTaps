@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,16 +20,28 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
-    public void PlayColorShift(){
-        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(2).name);
+    public void PlayGame(String gameName)
+    {
+        SceneManager.LoadScene(gameName);
     }
-    public void PlayColorSwitch(){
-        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(3).name);
+
+    public void PlayColorShift()
+    {
+        PlayGame("ColorShift");
     }
-    public void PlaySudoku(){
-        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(4).name);
+
+    public void PlayColorSwitch()
+    {
+        PlayGame("ColorSwitch");
     }
-    public void PlayAA(){
-        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(5).name);
+
+    public void Play2048()
+    {
+        PlayGame("2048");
+    }
+
+    public void PlayAA()
+    {
+        PlayGame("AA");
     }
 }
