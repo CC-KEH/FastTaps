@@ -9,6 +9,8 @@ TagManager:
   - Magenta
   - Yellow
   - ColorChanger
+  - Rotator
+  - Pin
   layers:
   - Default
   - TransparentFX

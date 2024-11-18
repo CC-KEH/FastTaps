@@ -18,4 +18,17 @@ public class MainMenu : MonoBehaviour
         Debug.Log("Quit Game Triggered");
         Application.Quit();
     }
+
+    public void PlayColorShift(){
+        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(2).name);
+    }
+    public void PlayColorSwitch(){
+        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(3).name);
+    }
+    public void PlaySudoku(){
+        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(4).name);
+    }
+    public void PlayAA(){
+        // SceneManager.LoadScene(SceneManager.GetSceneByBuildIndex(5).name);
+    }
 }
