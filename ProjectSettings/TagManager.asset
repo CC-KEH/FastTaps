@@ -11,6 +11,7 @@ TagManager:
   - ColorChanger
   - Rotator
   - Pin
+  - wall
   layers:
   - Default
   - TransparentFX
