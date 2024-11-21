@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 7cb3f6927c762b24581d80b938231663
   - enabled: 1
-    path: Assets/Scenes/ColorShift.unity
-    guid: 58fed1a3b91ec324f9cb12c9c7b34231
-  - enabled: 1
     path: Assets/Scenes/ColorSwitch.unity
     guid: fb6262c3aebe1e744a0c1eeb23f851a5
   - enabled: 1

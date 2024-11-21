@@ -1,9 +1,11 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float jump_force = 10f;
+    public float jump_force = 3f;
     public string current_color;
 
     public Rigidbody2D rigid_body;
@@ -18,7 +20,7 @@ public class Player : MonoBehaviour
     public GameObject double_circle;
     public GameObject triple_circle;
     public GameObject color_changer;
-
+    public TMP_Text scoreText;
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag == "ColorChanger")
@@ -89,26 +91,51 @@ public class Player : MonoBehaviour
         Debug.Log("Color changed to: " + current_color + ", SpriteRenderer color: " + sprite_renderer.color);
     }
     void updateScore()
-    {   
+    {
         int score = (int)transform.position.y + 3; // +3 to make the score start from 0
-        GameObject.Find("Score").GetComponent<UnityEngine.UI.Text>().text = "Score: " + score;
+        if (score < 0)
+        {
+            score = 0;
+        }
+        scoreText.text = score.ToString();
     }
-    
+
     void Start()
     {
         SetRandomColor();
     }
 
+    // void Update()
+    // {
+    //     if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0) || Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+    //     {
+    //         rigid_body.linearVelocity = Vector2.up * jump_force;
+    //     }
+    //     if (transform.position.y < -6.0f)
+    //     {
+    //         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    //     }
+    //     updateScore();
+    // }
+
     void Update()
     {
-        if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
+        var mouse = Mouse.current;
+        var keyboard = Keyboard.current;
+        var touch = Touchscreen.current;
+
+        if ((keyboard != null && keyboard.spaceKey.wasPressedThisFrame) ||
+            (mouse != null && mouse.leftButton.wasPressedThisFrame) ||
+            (touch != null && touch.primaryTouch.press.wasPressedThisFrame && touch.primaryTouch.phase.ReadValue() == UnityEngine.InputSystem.TouchPhase.Began))
         {
             rigid_body.linearVelocity = Vector2.up * jump_force;
         }
+
         if (transform.position.y < -6.0f)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
         updateScore();
     }
 }

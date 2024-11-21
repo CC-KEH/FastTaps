@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TileBoard : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class TileBoard : MonoBehaviour
 
     public void ClearBoard()
     {
-        foreach(TileCell cell in grid.cells)
+        foreach (TileCell cell in grid.cells)
         {
             cell.tile = null;
         }
@@ -27,7 +28,7 @@ public class TileBoard : MonoBehaviour
         {
             Destroy(tile.gameObject);
         }
-        
+
         tiles.Clear();
     }
 
@@ -41,7 +42,7 @@ public class TileBoard : MonoBehaviour
     }
 
     private void Move(Vector2Int direction, int startX, int incrementX, int startY, int incrementY)
-    {   
+    {
         Debug.Log("MoveTiles called with direction: " + direction);
         bool changed = false;
         for (int x = startX; x >= 0 && x < grid.width; x += incrementX)
@@ -75,7 +76,7 @@ public class TileBoard : MonoBehaviour
         b.SetState(tileStates[index], value);
         tileGameManager.IncreaseScore(value);
     }
-    
+
     private bool MoveTile(Tile tile, Vector2Int direction)
     {
         Debug.Log("Moving Tile");
@@ -103,7 +104,7 @@ public class TileBoard : MonoBehaviour
         }
         return false;
     }
-    
+
     private int IndexOf(TileState state)
     {
         for (int i = 0; i < tileStates.Length; i++)
@@ -117,7 +118,7 @@ public class TileBoard : MonoBehaviour
     }
 
     private IEnumerator WaitForChanges()
-    {   
+    {
         Debug.Log("Waiting for Changes");
         waitingForMove = true;
         yield return new WaitForSeconds(0.1f);
@@ -139,7 +140,7 @@ public class TileBoard : MonoBehaviour
     private bool CheckForGameOver()
     {
         Debug.Log("Checking for Game Over");
-        if (tiles.Count!= grid.width * grid.height)
+        if (tiles.Count != grid.width * grid.height)
         {
             return false;
         }
@@ -171,29 +172,93 @@ public class TileBoard : MonoBehaviour
         return true;
     }
 
+    // private void Update()
+    // {
+    //     if (waitingForMove) return;
+    //         // Also check for up swipe on mobile
+    //         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y > 0)
+    //         {
+    //             Debug.Log("Up");
+    //             Move(Vector2Int.up, 0, 1, 1, 1);
+    //         }
+    //         else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) || Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.y < 0)
+    //         {
+    //             Debug.Log("Down");
+    //             Move(Vector2Int.down, 0, 1, grid.height - 2, -1);
+    //         }
+    //         else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.x < 0)
+    //         {
+    //             Debug.Log("Left");
+    //             Move(Vector2Int.left, 1, 1, 0, 1);
+    //         }
+    //         else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || Input.touchCount > 0 && Input.GetTouch(0).deltaPosition.x > 0)
+    //         {
+    //             Debug.Log("Right");
+    //             Move(Vector2Int.right, grid.width - 2, -1, 0, 1);
+    //         }
+    // }
     private void Update()
     {
         if (waitingForMove) return;
-            if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+
+        var keyboard = Keyboard.current;
+        var touch = Touchscreen.current;
+
+        if (keyboard != null)
+        {
+            if (keyboard.wKey.wasPressedThisFrame || keyboard.upArrowKey.wasPressedThisFrame)
             {
                 Debug.Log("Up");
                 Move(Vector2Int.up, 0, 1, 1, 1);
             }
-            else if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
+            else if (keyboard.sKey.wasPressedThisFrame || keyboard.downArrowKey.wasPressedThisFrame)
             {
                 Debug.Log("Down");
                 Move(Vector2Int.down, 0, 1, grid.height - 2, -1);
             }
-            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            else if (keyboard.aKey.wasPressedThisFrame || keyboard.leftArrowKey.wasPressedThisFrame)
             {
                 Debug.Log("Left");
                 Move(Vector2Int.left, 1, 1, 0, 1);
             }
-            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            else if (keyboard.dKey.wasPressedThisFrame || keyboard.rightArrowKey.wasPressedThisFrame)
             {
                 Debug.Log("Right");
                 Move(Vector2Int.right, grid.width - 2, -1, 0, 1);
             }
-    }
+        }
 
+        if (touch != null && touch.primaryTouch.press.isPressed)
+        {
+            var delta = touch.primaryTouch.delta.ReadValue();
+            Debug.Log($"Touch delta: {delta}");
+
+            if (Mathf.Abs(delta.y) > Mathf.Abs(delta.x))
+            {
+                if (delta.y > 0)
+                {
+                    Debug.Log("Up");
+                    Move(Vector2Int.up, 0, 1, 1, 1);
+                }
+                else if (delta.y < 0)
+                {
+                    Debug.Log("Down");
+                    Move(Vector2Int.down, 0, 1, grid.height - 2, -1);
+                }
+            }
+            else if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
+            {
+                if (delta.x < 0)
+                {
+                    Debug.Log("Left");
+                    Move(Vector2Int.left, 1, 1, 0, 1);
+                }
+                else if (delta.x > 0)
+                {
+                    Debug.Log("Right");
+                    Move(Vector2Int.right, grid.width - 2, -1, 0, 1);
+                }
+            }
+        }
+    }
 }

@@ -4,10 +4,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    public void GoForward()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
 
     public void GoBack()
     {
@@ -18,6 +14,11 @@ public class MainMenu : MonoBehaviour
     {
         Debug.Log("Quit Game Triggered");
         Application.Quit();
+    }
+
+    public void muteAudio()
+    {
+        AudioListener.pause = !AudioListener.pause;
     }
 
     public void PlayGame(String gameName)
@@ -44,4 +45,6 @@ public class MainMenu : MonoBehaviour
     {
         PlayGame("AA");
     }
+
+    
 }

@@ -1,6 +1,7 @@
 using TMPro;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TileGameManager : MonoBehaviour
 {
@@ -12,6 +13,11 @@ public class TileGameManager : MonoBehaviour
     public void Start()
     {
         NewGame();
+    }
+
+    public void goBack(){
+        // Go to 0th index scene
+        SceneManager.LoadScene(0);
     }
     public void NewGame()
     {
