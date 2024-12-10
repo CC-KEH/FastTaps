@@ -1,7 +1,6 @@
 # Puzzles: A Minimalistic Game Collection 🎮
 
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/oPxjWnPXs1Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Demo Video](https://img.youtube.com/vi/oPxjWnPXs1Q/0.jpg)](https://youtube.com/shorts/oPxjWnPXs1Q?si=vPMOOwRVixMdMfkb)
 
 
 **Puzzles** is a collection of three classic games — **2048**, **ColorSwitch**, and **AA** — brought to life with a clean, minimalistic design. Built using Unity2D, this collection provides an immersive and smooth gaming experience for casual players.
