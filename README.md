@@ -3,7 +3,7 @@
 <video src="https://youtube.com/shorts/oPxjWnPXs1Q?si=vPMOOwRVixMdMfkb" controls="controls" style="max-width: 100%;">
 </video>
 
-![Demo Video](https://youtube.com/shorts/oPxjWnPXs1Q?si=vPMOOwRVixMdMfkb)
+![Demo Video](https://youtube.com/shorts/oPxjWnPXs1Q?si=vPMOOwRVixMdMfkb.gif)
 
 
 **Puzzles** is a collection of three classic games — **2048**, **ColorSwitch**, and **AA** — brought to life with a clean, minimalistic design. Built using Unity2D, this collection provides an immersive and smooth gaming experience for casual players.
