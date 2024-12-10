@@ -3,6 +3,8 @@
 <video src="https://github.com/CC-KEH/Puzzles/blob/main/demo.mp4" controls="controls" style="max-width: 100%;">
 </video>
 
+![Demo Video](https://github.com/CC-KEH/Puzzles/blob/main/demo.mp4)
+
 
 **Puzzles** is a collection of three classic games — **2048**, **ColorSwitch**, and **AA** — brought to life with a clean, minimalistic design. Built using Unity2D, this collection provides an immersive and smooth gaming experience for casual players.
 
