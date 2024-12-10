@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public float jump_force = 3f;
+    public float jump_force = 1f;
     public string current_color;
 
     public Rigidbody2D rigid_body;

@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14a1948fd40e9cf4fba85bc9e0b512e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jump_force: 8
+  jump_force: 5
   current_color: 
   rigid_body: {fileID: 1251255563}
   sprite_renderer: {fileID: 1251255560}
@@ -1050,7 +1050,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1.5
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -1837,11 +1837,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 234567524924153395, guid: 2c369fc7dea438c4797da9d67fec4cb4, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 234567524924153395, guid: 2c369fc7dea438c4797da9d67fec4cb4, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 234567524924153395, guid: 2c369fc7dea438c4797da9d67fec4cb4, type: 3}
       propertyPath: m_LocalScale.z
@@ -2042,6 +2042,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1166449526}
     m_Modifications:
+    - target: {fileID: 7464156881040238462, guid: 4b46ce19f2dbdfe40b10025cf79e4bac, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464156881040238462, guid: 4b46ce19f2dbdfe40b10025cf79e4bac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7464156881040238462, guid: 4b46ce19f2dbdfe40b10025cf79e4bac, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7464156881040238462, guid: 4b46ce19f2dbdfe40b10025cf79e4bac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.707618
