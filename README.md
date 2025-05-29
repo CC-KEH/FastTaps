@@ -1,9 +1,9 @@
-# Puzzles: A Minimalistic Game Collection 🎮
+# FastTaps: A Minimalistic Game Collection 🎮
 
 [![Demo Video](https://img.youtube.com/vi/oPxjWnPXs1Q/0.jpg)](https://youtube.com/shorts/oPxjWnPXs1Q?si=vPMOOwRVixMdMfkb)
 
 
-**Puzzles** is a collection of three classic games — **2048**, **ColorSwitch**, and **AA** — brought to life with a clean, minimalistic design. Built using Unity2D, this collection provides an immersive and smooth gaming experience for casual players.
+**FastTaps** is a collection of three classic games — **2048**, **ColorSwitch**, and **AA** — brought to life with a clean, minimalistic design. Built using Unity2D, this collection provides an immersive and smooth gaming experience for casual players.
 
 ---
 
@@ -30,7 +30,7 @@
 
 1. Clone the repository to your local machine:  
    ```bash
-   git clone https://github.com/CC-KEH/Puzzles.git
+   git clone https://github.com/CC-KEH/FastTaps.git
    ```
 2. Open the project in Unity2D.  
 3. Build and run the game on your desired platform or test it directly in the Unity editor.
@@ -47,7 +47,7 @@
 
 ## 🤝 Contributing
 
-We welcome contributions to make **Puzzles** even better!  
+We welcome contributions to make **FastTaps** even better!  
 
 ### Steps to Contribute:
 1. Fork the repository.  
